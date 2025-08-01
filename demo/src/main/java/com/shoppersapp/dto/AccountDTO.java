@@ -6,14 +6,16 @@ public class AccountDTO {
     private String accountNumber;
     private String sortCode;
     private BigDecimal balance;
+    private BigDecimal interestAccrued;
 
     public AccountDTO() {
     }
 
-    public AccountDTO(String accountNumber, String sortCode, BigDecimal balance) {
+    public AccountDTO(String accountNumber, String sortCode, BigDecimal balance, BigDecimal interestAccrued) {
         this.accountNumber = accountNumber;
         this.sortCode = sortCode;
         this.balance = balance;
+        this.interestAccrued = interestAccrued;
     }
 
     public String getAccountNumber() {
@@ -38,5 +40,13 @@ public class AccountDTO {
 
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
+    }
+
+    public BigDecimal getInterestAccrued() {
+        return interestAccrued;
+    }
+
+    public void setInterestAccrued(BigDecimal interestAccrued) {
+        this.interestAccrued = interestAccrued;
     }
 }

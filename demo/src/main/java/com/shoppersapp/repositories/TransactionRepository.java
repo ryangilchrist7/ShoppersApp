@@ -8,7 +8,8 @@ import com.shoppersapp.model.Transaction;
 import java.util.List;
 
 public interface TransactionRepository extends JpaRepository<Transaction, Integer> {
-    @Query("SELECT t FROM Transaction t WHERE t.bankAccount.bankAccountId.accountNumber = :accountNumber AND t.bankAccount.bankAccountId.sortCode = :sortCode")
-    List<Transaction> findAllTransactionsByBankAccountId(@Param("accountNumber") String accountNumber,
+    @Query("SELECT t FROM Transaction t WHERE t.accountNumber = :accountNumber AND t.sortCode = :sortCode ORDER BY t.createdAt DESC")
+    List<Transaction> findAllTransactionsByBankAccountId(
+            @Param("accountNumber") String accountNumber,
             @Param("sortCode") String sortCode);
 }

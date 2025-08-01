@@ -13,15 +13,12 @@ public class Transaction {
     @Column(name = "transaction_id")
     private Integer transactionId;
 
-    // Composite foreign key columns to BankAccount
     @Column(name = "account_number", length = 8, nullable = false)
     private String accountNumber;
 
-    @Column(name = "sort_code", length = 8, nullable = false)
+    @Column(name = "sort_code", length = 6, nullable = false)
     private String sortCode;
 
-    // Composite foreign key columns to DebitCard (nullable if transaction_type !=
-    // PURCHASE)
     @Column(name = "long_card_number", length = 16)
     private String longCardNumber;
 
@@ -60,8 +57,6 @@ public class Transaction {
 
     public Transaction() {
     }
-
-    // Getters and setters for all fields
 
     public Integer getTransactionId() {
         return transactionId;
